@@ -1,0 +1,63 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Deteksi kantuk</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("static/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+        }
+
+        #counter {
+            font-size: 40px;
+            color: teal;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Deteksi Kantuk</h1>
+        <p>Counter: <span id="counter">{{ counter }}</span></p>
+        <img id="video-stream" src="{{ url_for('video_feed') }}" width="600" height="480" />
+    </div>
+  
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const counterSpan = document.getElementById('counter');
+            const resetBtn = document.getElementById('reset-btn');
+            const socket = io();
+
+            // Update counter value when 'counter_update' event is received from the server
+            socket.on('counter_update', (counterValue) => {
+                counterSpan.textContent = counterValue;
+            });
+
+            // Send 'reset_counter' request to the server when the reset button is clicked
+            resetBtn.addEventListener('click', () => {
+                fetch('/reset_counter')
+                    .then(response => response.text())
+                    .then(result => {
+                        console.log(result);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+        });
+    </script>
+</body>
+</html> -->

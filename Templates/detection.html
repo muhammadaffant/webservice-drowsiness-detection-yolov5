@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drowsy Alert</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(3, 61, 3); /* Menambahkan warna hijau pada latar belakang */
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #counter {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        img {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function updateCounter() {
+            $.get("/get_counter", function(data) {
+                $("#counter").text(data);
+            });
+        }
+
+        setInterval(updateCounter, 1000);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Drowsy Alert</h1>
+        <p>Counter: <span id="counter">{{ counter }}</span></p>
+        <img src="{{ url_for('video_feed') }}" width="640" height="480" />
+        <!-- <a href="/home" class="back-button">Back</a> -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+path: ../yolov5/data
+train: images 
+val: images
+
+# Classes
+nc: 2
+names: ['terjaga', 'terlelap']

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Detection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .rounded-table {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        @media screen and (max-width: 600px) {
+            table, th, td {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Deteksi</h1>
+    <div class="rounded-table">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>waktu</th>
+                <th>Label</th>
+            </tr>
+            {% for detection in detections %}
+            <tr>
+                <td>{{ detection.id }}</td>
+                <td>{{ detection.waktu }}</td>
+                <td>{{ detection.label }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
